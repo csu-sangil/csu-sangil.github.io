@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,400,1,0" />
+
+    <title>Registro Areandina</title>
+    <meta name="title" content="Inscripción Areandina">
+    <meta name="description" content="Formulario oficial de inscripción. Regístrate ahora en Areandina.">
+
+    <style>
+        #tituloPregradoContainer {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Loader -->
+    <div class="loader" id="loader">
+        <div class="spinner"></div>
+        <p style="margin-top:20px; font-weight:700; color:#4a7511;">Enviando datos...</p>
+    </div>
+
+    <!-- Toasts -->
+    <div id="toastContainer" class="toast-container"></div>
+
+    <div class="main-layout">
+        <!-- Panel Izquierdo (Hero) -->
+        <div class="hero-panel">
+            <div class="hero-decoration"></div>
+            <div class="hero-decoration hero-decoration-2"></div>
+            <div class="hero-content">
+                <div class="logo-container">
+                    <img src="Logo.png" alt="Areandina Logo">
+                </div>
+                <h1 class="hero-title">Tu futuro comienza <span class="hero-highlight">aquí</span></h1>
+                <p class="hero-subtitle">Inscríbete y da el primer paso hacia la carrera de tus sueños en Areandina.</p>
+
+                <div class="hero-features">
+                    <div class="hero-feature">
+                        <span class="material-symbols-rounded">school</span>
+                        <span>Educación de calidad</span>
+                    </div>
+                    <div class="hero-feature">
+                        <span class="material-symbols-rounded">laptop_mac</span>
+                        <span>Modalidad flexible</span>
+                    </div>
+                    <div class="hero-feature">
+                        <span class="material-symbols-rounded">support_agent</span>
+                        <span>Acompañamiento</span>
+                    </div>
+                </div>
+
+                <div class="hero-badge">
+                    <span class="material-symbols-rounded">verified</span>
+                    Admisiones 2026
+                </div>
+            </div>
+        </div>
+
+        <!-- Panel Derecho (Formulario) -->
+        <div class="form-panel">
+            <form class="form" id="registroForm">
+                <h2 class="form-title">Registro <span style="color: #7DBA24;">Areandina</span></h2>
+
+                <div class="form-section">
+                    <h3 class="section-title"><span class="material-symbols-rounded">person</span> Información Personal
+                    </h3>
+
+                    <div class="flex">
+                        <label>
+                            <input required placeholder=" " type="text" class="input" id="nombre" autocomplete="name">
+                            <span>Nombre completo</span>
+                        </label>
+                        
+                        <label>
+                            <input required placeholder=" " type="text" class="input" id="documento">
+                            <span>Tipo y Nº de documento</span>
+                        </label>
+                    </div>
+
+                    <div class="flex">
+                        <label>
+                            <input required type="date" class="input" id="fechaExpedicion" placeholder=" ">
+                            <span>Fecha de expedición</span>
+                        </label>
+                        <label>
+                            <input required placeholder=" " type="text" class="input" id="ciudadExpedicion">
+                            <span>Ciudad de expedición</span>
+                        </label>
+                    </div>
+
+                    <div class="flex">
+                        <label>
+                            <input required type="date" class="input" id="fechaNacimiento" placeholder=" ">
+                            <span>Fecha de nacimiento</span>
+                        </label>
+                        <label>
+                            <input required placeholder=" " type="text" class="input" id="lugarNacimiento">
+                            <span>Lugar de nacimiento</span>
+                        </label>
+                    </div>
+
+                    <div class="flex">
+                        <label>
+                            <input required placeholder=" " type="text" class="input" id="eps" list="epsList">
+                            <span>EPS</span>
+                        </label>
+                        <label>
+                            <select required class="input" id="grupoSanguineo">
+                                <option value="" disabled selected></option>
+                                <option value="A+">A+</option>
+                                <option value="A-">A-</option>
+                                <option value="B+">B+</option>
+                                <option value="B-">B-</option>
+                                <option value="AB+">AB+</option>
+                                <option value="AB-">AB-</option>
+                                <option value="O+">O+</option>
+                                <option value="O-">O-</option>
+                            </select>
+                            <span>Grupo Sanguíneo</span>
+                        </label>
+                        <label>
+                            <select required class="input" id="estadoCivil">
+                                <option value="" disabled selected></option>
+                                <option value="soltero">Soltero(a)</option>
+                                <option value="casado">Casado(a)</option>
+                                <option value="unionLibre">Unión Libre</option>
+                                <option value="divorciado">Divorciado(a)</option>
+                                <option value="viudo">Viudo(a)</option>
+                            </select>
+                            <span>Estado Civil</span>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="form-section">
+                    <h3 class="section-title"><span class="material-symbols-rounded">location_on</span> Información de
+                        Contacto</h3>
+
+                    <div class="flex">
+                        <label>
+                            <input required placeholder=" " type="text" class="input" id="ciudadResidencia">
+                            <span>Ciudad de residencia</span>
+                        </label>
+                        <label>
+                            <select required class="input" id="departamento">
+                                <option value="" disabled selected></option>
+                                <option value="Amazonas">Amazonas</option>
+                                <option value="Antioquia">Antioquia</option>
+                                <option value="Arauca">Arauca</option>
+                                <option value="Atlántico">Atlántico</option>
+                                <option value="Bogotá D.C.">Bogotá D.C.</option>
+                                <option value="Bolívar">Bolívar</option>
+                                <option value="Boyacá">Boyacá</option>
+                                <option value="Caldas">Caldas</option>
+                                <option value="Caquetá">Caquetá</option>
+                                <option value="Casanare">Casanare</option>
+                                <option value="Cauca">Cauca</option>
+                                <option value="Cesar">Cesar</option>
+                                <option value="Chocó">Chocó</option>
+                                <option value="Córdoba">Córdoba</option>
+                                <option value="Cundinamarca">Cundinamarca</option>
+                                <option value="Guainía">Guainía</option>
+                                <option value="Guaviare">Guaviare</option>
+                                <option value="Huila">Huila</option>
+                                <option value="La Guajira">La Guajira</option>
+                                <option value="Magdalena">Magdalena</option>
+                                <option value="Meta">Meta</option>
+                                <option value="Nariño">Nariño</option>
+                                <option value="Norte de Santander">Norte de Santander</option>
+                                <option value="Putumayo">Putumayo</option>
+                                <option value="Quindío">Quindío</option>
+                                <option value="Risaralda">Risaralda</option>
+                                <option value="San Andrés y Providencia">San Andrés y Providencia</option>
+                                <option value="Santander">Santander</option>
+                                <option value="Sucre">Sucre</option>
+                                <option value="Tolima">Tolima</option>
+                                <option value="Valle del Cauca">Valle del Cauca</option>
+                                <option value="Vaupés">Vaupés</option>
+                                <option value="Vichada">Vichada</option>
+                            </select>
+                            <span>Departamento</span>
+                        </label>
+                    </div>
+                    <div class="flex">
+                        <label>
+                            <input required placeholder=" " type="text" class="input" id="direccion"
+                                autocomplete="street-address">
+                            <span>Dirección</span>
+                        </label>
+                        <label>
+                            <input required placeholder=" " type="text" class="input" id="barrio">
+                            <span>Barrio</span>
+                        </label>
+                    </div>
+                    <div class="flex">
+                        <label>
+                            <input required placeholder=" " type="tel" class="input" id="telefono" autocomplete="tel">
+                            <span>Teléfono celular</span>
+                        </label>
+                        <label>
+                            <input required placeholder=" " type="email" class="input" id="email" autocomplete="email">
+                            <span>Correo electrónico</span>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="form-section">
+                    <h3 class="section-title"><span class="material-symbols-rounded">school</span> Información Académica
+                    </h3>
+
+                    <div class="flex">
+                        <label>
+                            <input required placeholder=" " type="text" class="input" id="colegio">
+                            <span>Colegio de bachiller / procedencia</span>
+                        </label>
+                        <label>
+                            <select required class="input" id="nivel">
+                                <option value="" disabled selected></option>
+                                <option value="pregrado">Pregrado</option>
+                                <option value="posgrado">Posgrado</option>
+                            </select>
+                            <span>Programa</span>
+                        </label>
+                    </div>
+                    <div class="flex" id="senaRow" style="display:none;">
+                        <label id="senaPregunta">
+                            <select class="input" id="esSena">
+                                <option value="" disabled selected></option>
+                                <option value="si">Sí</option>
+                                <option value="no">No</option>
+                            </select>
+                            <span>¿Es estudiante SENA?</span>
+                        </label>
+                        <label id="programaSenaLabel" style="display:none;">
+                            <input class="input" type="text" id="programaSena" placeholder=" ">
+                            <span>Programa procedencia SENA</span>
+                        </label>
+                    </div>
+                    <div class="flex">
+                        <label>
+                            <select required class="input" id="carrera">
+                                <option value="" disabled selected></option>
+                            </select>
+                            <span>Carrera por estudiar</span>
+                        </label>
+                        <label>
+                            <select required class="input" id="asesor">
+                                <option value="" disabled selected></option>
+                                <option value="Diana">Diana</option>
+                            </select>
+                            <span>Asesor</span>
+                        </label>
+                        <label id="tituloPregradoContainer">
+                            <input placeholder=" " type="text" class="input" id="tituloPregrado">
+                            <span>Título Pregrado</span>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="form-section">
+                    <h3 class="section-title"><span class="material-symbols-rounded">family_restroom</span> Referencia
+                        Familiar</h3>
+
+                    <div class="flex">
+                        <label>
+                            <input required placeholder=" " type="text" class="input" id="referenciaNombre">
+                            <span>Nombre Referencia Familiar</span>
+                        </label>
+                        <label>
+                            <input required placeholder=" " type="text" class="input" id="referenciaParentesco">
+                            <span>Parentesco</span>
+                        </label>
+                    </div>
+                    <div class="flex">
+                        <label>
+                            <input required placeholder=" " type="tel" class="input" id="referenciaTelefono">
+                            <span>Teléfono Referencia</span>
+                        </label>
+                        <label>
+                            <input required placeholder=" " type="email" class="input" id="referenciaEmail">
+                            <span>Correo Referencia</span>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="form-section">
+                    <h3 class="section-title"><span class="material-symbols-rounded">chat</span> Cuéntanos sobre ti</h3>
+
+                    <div class="flex">
+                        <label>
+                            <textarea required placeholder=" " class="input textarea-input" id="motivacion"
+                                rows="2"></textarea>
+                            <span>¿Qué te motiva a estudiar este programa?</span>
+                        </label>
+                        <label>
+                            <textarea required placeholder=" " class="input textarea-input" id="preocupacion"
+                                rows="2"></textarea>
+                            <span>¿Qué te preocupa de entrar a la Universidad?</span>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="submit-container">
+                    <button type="submit" class="submit">Enviar Registro</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Datalists -->
+    <datalist id="epsList">
+        <option value="Sura"></option>
+        <option value="Sanitas"></option>
+        <option value="Compensar"></option>
+        <option value="Salud Total"></option>
+        <option value="Nueva EPS"></option>
+        <option value="Famisanar"></option>
+        <option value="Coosalud"></option>
+        <option value="Mutual Ser"></option>
+        <option value="Aliansalud"></option>
+        <option value="Comfenalco Valle"></option>
+        <option value="SOS EPS"></option>
+        <option value="Coomeva"></option>
+        <option value="Medimás"></option>
+        <option value="Cafesalud"></option>
+        <option value="Capital Salud"></option>
+        <option value="Savia Salud"></option>
+        <option value="Emssanar"></option>
+        <option value="Asmet Salud"></option>
+        <option value="Ecoopsos"></option>
+        <option value="Dusakawi"></option>
+        <option value="Anas Wayuu"></option>
+        <option value="Mallamas"></option>
+        <option value="Pijaos Salud"></option>
+        <option value="Convida"></option>
+        <option value="Cajacopi"></option>
+        <option value="Capresoca"></option>
+        <option value="Comfaoriente"></option>
+        <option value="Comfachocó"></option>
+        <option value="Comfamiliar Huila"></option>
+        <option value="Comfamiliar Nariño"></option>
+        <option value="Comfamiliar Cartagena"></option>
+        <option value="SISBEN / Subsidiado"></option>
+        <option value="Ninguna"></option>
+        <option value="Otra"></option>
+    </datalist>
+
+
+    <script>
+        const carreras = {
+            pregrado: [
+                "Licenciatura en Educación Infantil", "Marketing de Negocios", "Finanzas y Negocios Internacionales",
+                "Administración de empresas", "Licenciatura en Ciencias Sociales", "Psicología Profesional",
+                "Ingeniería Industrial", "Ingeniería de Sistemas", "Administración en Salud", "Administración Pública",
+                "Economía", "Comunicación Social", "Tecnología en Gestión del Talento Humano", "Tecnología en Logística",
+                "Tecnología en Producción de Ganadería Sostenible", "Derecho", "Ingeniería de Software", "Seguridad y salud en el trabajo"
+            ],
+            posgrado: [
+                "Esp. en Infancia, Adolescencia y Desarrollo Familiar", "Esp. en Derechos de autor, propiedad ind. y nuevas tec.",
+                "Esp. Auditoria en Salud", "Esp. en Informática para la Innovación Educativa", "Esp. en Revisoría fiscal y auditoría forense",
+                "Esp. en Pedagogía y Docencia", "Esp. Gerencia en Seguridad y Salud en el Trabajo", "Esp. Gestión Ambiental",
+                "Esp. Gerencia Financiera", "Esp. Alta Gerencia", "Esp. Dirección y Producción de contenidos audiovisuales",
+                "Maestría en Educación para la Innovación Pedagógica", "Maestría en Innovación", "Maestría en Gerencia de Mercadeo Digital",
+                "Maestría en Epidemiología"
+            ]
+        };
+
+        const nivelSelect = document.getElementById("nivel");
+        const carreraSelect = document.getElementById("carrera");
+        const tituloPregradoContainer = document.getElementById("tituloPregradoContainer");
+        const tituloPregradoInput = document.getElementById("tituloPregrado");
+        const senaPregunta = document.getElementById("senaPregunta");
+        const senaRow = document.getElementById("senaRow");
+        const esSenaSelect = document.getElementById("esSena");
+        const programaSenaLabel = document.getElementById("programaSenaLabel");
+        const programaSenaInput = document.getElementById("programaSena");
+
+        nivelSelect.addEventListener("change", function () {
+            const nivel = this.value;
+            carreraSelect.innerHTML = '<option value="" disabled selected></option>';
+            if (carreras[nivel]) {
+                carreras[nivel].forEach(c => {
+                    const option = document.createElement("option");
+                    option.value = c;
+                    option.textContent = c;
+                    carreraSelect.appendChild(option);
+                });
+            }
+
+            if (nivel === "posgrado") {
+                tituloPregradoContainer.style.display = "block";
+                tituloPregradoInput.setAttribute("required", "true");
+                senaPregunta.style.display = "none";
+                senaRow.style.display = "none";
+                programaSenaLabel.style.display = "none";
+            } else if (nivel === "pregrado") {
+                senaRow.style.display = "flex";
+                tituloPregradoContainer.style.display = "none";
+                tituloPregradoInput.removeAttribute("required");
+            }
+        });
+
+        esSenaSelect.addEventListener("change", function () {
+            if (this.value === "si") {
+                programaSenaLabel.style.display = "block";
+                programaSenaInput.setAttribute("required", "true");
+            } else {
+                programaSenaLabel.style.display = "none";
+                programaSenaInput.removeAttribute("required");
+            }
+        });
+
+        function showToast(message) {
+            const container = document.getElementById('toastContainer');
+            const toast = document.createElement('div');
+            toast.className = 'toast show';
+            toast.textContent = message;
+            container.appendChild(toast);
+            setTimeout(() => {
+                toast.classList.remove('show');
+                setTimeout(() => toast.remove(), 400);
+            }, 4000);
+        }
+
+        function formatDateToDDMMYYYY(dateString) {
+            if (!dateString) return "";
+            const parts = dateString.split("-");
+            if (parts.length === 3) {
+                return `${parts[2]}/${parts[1]}/${parts[0]}`; // DD/MM/YYYY
+            }
+            return dateString;
+        }
+
+        const form = document.getElementById('registroForm');
+        const loader = document.getElementById('loader');
+
+        form.addEventListener('submit', function (event) {
+            event.preventDefault();
+            loader.style.display = "flex";
+
+            const data = {
+                fechaInscripcion: new Date().toLocaleString(),
+                nombre: document.getElementById('nombre').value,
+                documento: document.getElementById('documento').value,
+                fechaExpedicion: formatDateToDDMMYYYY(document.getElementById('fechaExpedicion').value),
+                ciudadExpedicion: document.getElementById('ciudadExpedicion').value,
+                fechaNacimiento: formatDateToDDMMYYYY(document.getElementById('fechaNacimiento').value),
+                lugarNacimiento: document.getElementById('lugarNacimiento').value,
+                eps: document.getElementById('eps').value,
+                grupoSanguineo: document.getElementById('grupoSanguineo').value,
+                estadoCivil: document.getElementById('estadoCivil').value,
+                ciudadResidencia: document.getElementById('ciudadResidencia').value,
+                departamento: document.getElementById('departamento').value,
+                direccion: document.getElementById('direccion').value,
+                barrio: document.getElementById('barrio').value,
+                telefono: document.getElementById('telefono').value,
+                email: document.getElementById('email').value,
+                colegio: document.getElementById('colegio').value,
+                nivel: document.getElementById('nivel').value,
+                carrera: document.getElementById('carrera').value,
+                tituloPregrado: document.getElementById('tituloPregrado') ? document.getElementById('tituloPregrado').value : "",
+                esSena: document.getElementById('esSena') ? document.getElementById('esSena').value : "",
+                programaSena: document.getElementById('programaSena') ? document.getElementById('programaSena').value : "",
+                asesor: document.getElementById('asesor').value,
+                referenciaNombre: document.getElementById('referenciaNombre').value,
+                referenciaParentesco: document.getElementById('referenciaParentesco').value,
+                referenciaTelefono: document.getElementById('referenciaTelefono').value,
+                referenciaEmail: document.getElementById('referenciaEmail').value,
+                motivacion: document.getElementById('motivacion').value,
+                preocupacion: document.getElementById('preocupacion').value
+            };
+
+fetch('https://script.google.com/macros/s/AKfycbwOOqijnc_KjL9nzB5xm5Ym1putW5Hqcs6rF7fsqqomw-bg2VGeM3IIhsqkXm2N1qXNDw/exec', {                method: 'POST',
+                mode: 'no-cors',
+                body: JSON.stringify(data),
+                headers: { "Content-Type": "application/json" }
+            })
+                .then(() => {
+                    loader.style.display = "none";
+                    showToast('✅ Registro enviado correctamente');
+                    form.reset();
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                })
+                .catch(error => {
+                    loader.style.display = "none";
+                    showToast('❌ Error al enviar el formulario');
+                    console.error(error);
+                });
+        });
+    </script>
+
+</body>
+
+</html>
